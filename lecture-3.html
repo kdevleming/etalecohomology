@@ -1,0 +1,62 @@
+<h1 id="standard-examples">Standard examples</h1>
+<h3 id="g-sets"><span class="math">\(G\)</span>-sets</h3>
+<p>Let <span class="math">\(G\)</span> be a group, and let <span class="math">\(C\)</span> be the category of sets with a left <span class="math">\(G\)</span>-action. <strong>Variant</strong>: let <span class="math">\(G\)</span> be a <em>profinite</em> group, and let <span class="math">\(C\)</span> be the category of finite sets with a <em>continuous</em> (left) action. Define a covering to be a collection of <span class="math">\(G\)</span>-equivariant maps <span class="math">\(\{U_i\to U\}\)</span> such that <span class="math">\(\sqcup U_i\to U\)</span> is surjective.</p>
+<div class="exercise math">
+<dl><dt class="math">Exercise 1</dt>
+<dd class="math">
+Show that we have just described the canonical topology on <span class="math">\(C\)</span>.
+</dd>
+</dl>
+</div>
+<p>Given a sheaf <span class="math">\(F:C^\circ\to\Set\)</span>, we can make <span class="math">\(F(G)\)</span> into a <span class="math">\(G\)</span>-set: (first, <span class="math">\(G\)</span> acts on the left on <span class="math">\(G\)</span> by translation) <span class="math">\[g:F(G)\to F(G)\]</span> is defined to be the map induced by the map of left <span class="math">\(G\)</span>-sets <span class="math">\[G\to G: a\mapsto a g^{-1}.\]</span></p>
+<div class="claim math">
+<dl><dt class="math">Claim 2</dt>
+<dd class="math">
+Every sheaf <span class="math">\(F\)</span> on <span class="math">\(C\)</span> is representable by <span class="math">\(F(G)\)</span> with the above action.
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>. Given a <span class="math">\(G\)</span>-set <span class="math">\(U\)</span>, we need to find a functorial isomorphism <span class="math">\[F(U)\to\Hom_C(U, F(G)).\]</span> We can write <span class="math">\(U\)</span> is a disjoint union of orbits <span class="math">\(U=\sqcup U_i\)</span>, and <strong>the sheaf property tells</strong> us that this decomposition induces a canonical isomorphism <span class="math">\(F(U)=\prod F(U_i)\)</span>. Thus, it suffices to show this for <span class="math">\(U\)</span> that consist of a single <span class="math">\(G\)</span>-orbit.</p>
+<p>But then there is a covering of the form <span class="math">\(G\to U\)</span> (given by choosing an element <span class="math">\(u\in U\)</span> and letting <span class="math">\(G\)</span> act). The sheaf property says that <span class="math">\(F(U)\)</span> is idenfied with the the equalizer of <span class="math">\[F(G)\rightrightarrows F(G\times_U G).\]</span> Having chosen <span class="math">\(u\)</span>, let’s write <span class="math">\(U = G/H\)</span> for <span class="math">\(H\)</span> a subgroup of <span class="math">\(G\)</span>. Two elements of <span class="math">\(G\)</span> map to the same element of <span class="math">\(G/H\)</span> if and only if they are in the same coset. Thus, an element of <span class="math">\(G\times_U G\)</span> has the form <span class="math">\((g, gh)\)</span> for some <span class="math">\(h\in H\)</span>. This gives an isomorphism of <span class="math">\(G\)</span>-sets <span class="math">\[G\times_U G\to G\times H,\]</span> where the <span class="math">\(H\)</span> factor in the latter has a trivial <span class="math">\(G\)</span>-action. In other words, <span class="math">\[G\times_U G\cong \sqcup_{h\in H} G\]</span> as <span class="math">\(G\)</span>-sets. This admits a right <span class="math">\(H\)</span>-action that simply permutes the factors.</p>
+<p>By the sheaf property, we conclude that <span class="math">\[F(G\times_U G)\cong \prod_{h\in H} F(G).\]</span> What are the maps <span class="math">\(F(G)\to \prod_HF(G)\)</span>? The first one is the diagonal map, while the second one is the product of the maps <span class="math">\(F(G)\to F(G)\)</span> given by the right action of <span class="math">\(H\)</span>. The equalizer of the maps is precisely the <span class="math">\(H\)</span>-invariant part of <span class="math">\(F(G)\)</span>.</p>
+<p>What is <span class="math">\(\Hom_C(G/H, F(G))\)</span>? Well, <span class="math">\(\Hom_C(G, S)\)</span> for any <span class="math">\(G\)</span>-set <span class="math">\(S\)</span> is the same as <span class="math">\(S\)</span>, so <span class="math">\(\Hom_C(G/H, F(G))\subset F(G)\)</span>. It is the subset consisting of elements of <span class="math">\(F(G)\)</span> that are fixed by <span class="math">\(H\)</span>, that is, <span class="math">\(\alpha\in F(G)\)</span> such that for all <span class="math">\(h\in H\)</span>, the map <span class="math">\(g\mapsto gh^{-1}\)</span> sends <span class="math">\(\alpha\)</span> to <span class="math">\(\alpha\)</span>. Call this <span class="math">\(F(G)^{H}\)</span>.</p>
+<p>This identifies <span class="math">\(F(U)\)</span> with <span class="math">\(\Hom_C(U, F(G))\)</span>, as desired. QED</p>
+<p><strong>Upshot</strong>: a sheaf on <span class="math">\(G\)</span>-set is a <span class="math">\(G\)</span>-set, and a sheaf of abelian group is a <span class="math">\(G\)</span>-module. (Be careful about profinite groups and continuity/discreteness conditions!)</p>
+<h3 id="topological-spaces-big-and-small">Topological spaces, big and small</h3>
+<p>Given a topological space <span class="math">\(X\)</span>, we have the category of open subsets, <span class="math">\(\Open(X)\)</span>. This has a Grothendieck topology that you know and love (because you described it, or maybe we did this in class). This is called the <em>small site</em> of <span class="math">\(X\)</span>.</p>
+<p>We can also consider the slice category <span class="math">\(\Top_{/X}\)</span> of all topological spaces over <span class="math">\(X\)</span>, like <span class="math">\(Y\to X\)</span>. A covering is a collection of <span class="math">\(X\)</span>-maps <span class="math">\(\{U_i\to U\}\)</span> that form a covering of <span class="math">\(U\)</span> in the usual way. This is called the <em>big site</em> of <span class="math">\(X\)</span>.</p>
+<p>There are two natural functors <span class="math">\[\Top_{/X}\to\Sh(\Open(X))\]</span> and <span class="math">\[\Top_{/X}\to\Sh(\Top_{/X}).\]</span></p>
+<div class="question math">
+<dl><dt class="math">Question 3</dt>
+<dd class="math">
+Are either of these functors fully faithful? Are they both fully faithful?
+</dd>
+</dl>
+</div>
+<h3 id="the-etale-site-of-a-field">The etale site of a field</h3>
+<p>Let <span class="math">\(K\)</span> be a field. Let <span class="math">\(\Et(K)\)</span> be the opposite of the category of finite semisimple commutative <span class="math">\(K\)</span>-algebras. By the classical structure theory, the objects of <span class="math">\(C\)</span> are <span class="math">\(K\)</span>-algebras of the form <span class="math">\(\prod L_i\)</span> where each <span class="math">\(L_i\)</span> is a finite separable extension of <span class="math">\(K\)</span>. In other words, <span class="math">\(\Et(K)\)</span> is the category of <span class="math">\(K\)</span>-schemes of the form <span class="math">\(\sqcup\Spec L_i\)</span> with each <span class="math">\(L_i\)</span> a finite separable extenson of <span class="math">\(K\)</span>.</p>
+<p>A covering <span class="math">\(\{U_i\to U\}\)</span> in <span class="math">\(C\)</span> is a collection of maps such that <span class="math">\(\sqcup U_i\to U\)</span> is set-theoretically surjective.</p>
+<div class="exercise math">
+<dl><dt class="math">Exercise 4</dt>
+<dd class="math">
+Show that this is a site. Please.
+</dd>
+</dl>
+</div>
+<p>Fix a separable closure <span class="math">\(K\subset K^s\)</span>. Let <span class="math">\(G\)</span> be the Galois group of <span class="math">\(K\)</span>. Define a functor <span class="math">\[\varepsilon:\Et(K)\to G-\FinSet\]</span> that sends <span class="math">\(L_i\)</span> to the set of embeddings of <span class="math">\(K\)</span>-algebras <span class="math">\(L_i\hookrightarrow K^s\)</span>.</p>
+<div class="theorem math">
+<dl><dt class="math">Theorem 5</dt>
+<dd class="math">
+<span class="math">\(\varepsilon\)</span> is an equivalence of categories that preserves the topologies.
+</dd>
+</dl>
+</div>
+<p><strong>Proof</strong>. Given an extension of separable extensions of <span class="math">\(K\)</span>, say <span class="math">\(L\subset M\)</span>, you already know from your algebra childhoods that any embedding <span class="math">\(L\hookrightarrow K^s\)</span> extends to an embedding <span class="math">\(M\hookrightarrow K^s\)</span>. The rest is up to you. QED</p>
+<div class="corollary math">
+<dl><dt class="math">Corollary 6</dt>
+<dd class="math">
+There is a natural equivalence of categories between sheaves of finite abelian groups on <span class="math">\(\Et(K)\)</span> and finite abelian <span class="math">\(G_K\)</span>-modules.
+</dd>
+</dl>
+</div>
+<p>Do you see where this is going? Cohomology!</p>
